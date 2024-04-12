@@ -1,58 +1,12 @@
-### PART 4 Of the Assignment
+### Doctors
 
-# 1) why I opted for Django
-- a)
-    - Pros
-        - It's mainly based on Django's ORM. Giving that python itself is primarily based on OOP, Django was a wise choice.
-        - Django is a full-stack framework. If in the feature, one decides to build a client application for this project, Django will suffice.
-        - Django admin is quite a handy dashboard.
-        - It is the python framework I am most familiar with.
-    - Cons
-        - It can be an overkill for small projects.
-        - relatively heavyweight compared to its counterpart, flask.
-
-- b)
-    - It provides multiple built-in methods for database relationships.
-    - there are multiple helpful third-part libraries build specifically for it.
-    - Excellent documentation.
-
-
-# 2) Potential improvement
-    - I'll use oauth 2.0 to validate all api requests. I'll provide a client_id and access tokens to authorized frontend applications to make requests. 
-        https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/rest-framework.html
-    - I'll add permission_classes to all api endpoint.
-    - if possible, re-write the operating_hours model. This will allow different doctors to occupy weekdays they have in common, even if they have different working hours. It'll also make the admin dashboard look cleaner.
-    - Expand serializer validations.
-    - Use factory_boy library and fuzzy attributes to build dummy models. It'll also allow me to write more objective tests. 
-        (https://factoryboy.readthedocs.io/en/stable/orms.html)
-    - Write negative tests. For example, run a bad 'POST' request and verify that it is BadRequest.
-    - Write more than the 6 test cases I currently have.
-    - Test calling my API endpoints using different languages.
-    - Dockerize the project to save the next developer time.
-    - Perhaps space out my git commits, rather than commiting large and different changes all at once.
-
-
-# 3) Production consideration
-    - I have adjusted the settings.py file to allow for environment variables configuration. Please refer to 'dev-example.env' to find the environment variables for this project.
-    - Please use postgres because the database setting is currently configured for it.
-    - Always set DEBUG=False in production.
-    - A custom domain name can be added to 'ALLOWED_HOSTS' during deployment to production. 
-    - Remember to run the collecstatic command (python3 manage.py collecstatic). If you are considering deploying the application in an EC2 instance, add a container command under in the '.evextensions' directory/commands.config.
-    - Apply all migrations to setup your database tables.
-    - Please add all sensitive informations to your environment variables.
-    - If you plan to deploy this application to an EC2 instance on AWS, please consider an S3 bucket to handle your media and static files. 
-
-
-# 3) Assumptions
-- a)
+# Assumptions
     - Every Doctor belongs to one category.
     - Every Doctor operates in one district.
     - A doctor may be able to offer his/her services in multiple languages.
     - Multiple doctors may speak similar language(s).
     - Every doctor has his/her own operating hours. 
 
-- b)
-    - Time to learn a second language, Mandarin perhaps.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
